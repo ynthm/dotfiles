@@ -1,0 +1,21 @@
+[user]
+	name = Ynthm Wang
+	email = ynthm.w@gmail.com
+[http]
+	postBuffer = 524288000
+[alias]
+	a = add
+	b = branch
+	c = commit
+	co = checkout
+	cob = checkout
+	st = status
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[core]
+	excludesfile = ~/.gitignore_global
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/code --wait --diff $LOCAL $REMOTE
+	path = 
+[mergetool "sourcetree"]
+	cmd = /usr/local/bin/code --wait $MERGED
+	trustExitCode = true
