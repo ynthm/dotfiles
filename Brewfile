@@ -1,14 +1,12 @@
-tap "caskroom/versions"
 tap "elastic/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
-tap "jenkins-x/jx"
 tap "mongodb/brew"
 tap "sambadevi/powerlevel9k"
-tap "varenc/ffmpeg"
+tap "homebrew-ffmpeg/ffmpeg"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -23,8 +21,6 @@ brew "fdk-aac"
 brew "fdk-aac-encoder"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# The Kubernetes package manager
-brew "helm"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # Asynchronous event library
@@ -49,8 +45,6 @@ brew "maven"
 brew "nginx"
 # Manage multiple Node.js versions
 brew "nvm"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@1.1"
 # Object-relational database system
 brew "postgresql"
 # Protocol buffers (Google's data interchange format)
@@ -86,7 +80,7 @@ brew "mongodb/brew/mongodb-community"
 # A badass zsh theme with more power than a normal earthling
 brew "sambadevi/powerlevel9k/powerlevel9k"
 # Play, record, convert, and stream audio and video
-brew "varenc/ffmpeg/ffmpeg", args: ["with-fdk-aac"]
+brew "homebrew-ffmpeg/ffmpeg", args: ["with-fdk-aac"]
 cask "aegisub"
 cask "aerial"
 cask "another-redis-desktop-manager"
@@ -100,7 +94,6 @@ cask "fliqlo"
 cask "font-hack-nerd-font"
 cask "font-sourcecodepro-nerd-font-mono"
 cask "google-chrome"
-cask "gramps"
 cask "handbrake"
 cask "iina"
 cask "imageoptim"
@@ -108,7 +101,6 @@ cask "intellij-idea"
 cask "iterm2"
 cask "itsycal"
 cask "java11"
-cask "java6"
 cask "java8"
 cask "jd-gui"
 cask "jietu"
@@ -117,11 +109,8 @@ cask "keka"
 cask "makemkv"
 cask "mediainfo"
 cask "metaz"
-cask "microsoft-edge-dev"
 cask "microsoft-remote-desktop-beta"
 cask "mos"
-cask "postman"
-cask "pycharm"
 cask "qiyimedia"
 cask "qlcolorcode"
 cask "qlimagesize"
@@ -137,3 +126,9 @@ cask "trufont"
 cask "tunnelblick"
 cask "v2rayx"
 cask 'visual-studio-code'
+cask "cheatsheet"
+cask "iina"
+cask "vagrant"
+cask "youdaodict"
+# HTTP 调试工具
+cask "insomnia"

@@ -33,6 +33,7 @@ brew info <package-name>
 brew cask info <package-name>
 # 更新 Homebrew Cask
 brew update
+# brew update --verbose
 brew cask upgrade
 
 # 卸载 uninstall
@@ -45,6 +46,22 @@ man brew-cask
 ```
 
 
+
+```sh
+brew tap jenkins-x/jx
+brew untap jenkins-x/jx
+```
+
+
+
+```sh
+# 代理 待测试
+vim ~/.curlrc
+```
+
+```properties
+socks5 = "127.0.0.1:1086"
+```
 
 
 

@@ -1,11 +1,10 @@
 #!/bin/sh
 
 # Upgrade homebrew
-echo "› brew update"
+echo "🍄🍄🍄 brew update"
 brew update
 
-cd "$(dirname $0)"/..
-
 # Run Homebrew through the Brewfile
-echo "› brew bundle"
-brew bundle
+echo "🌖🌖🌖 brew bundle"
+DOTFILES_ROOT=$(pwd -P)
+brew bundle --file="$DOTFILES_ROOT/Brewfile"

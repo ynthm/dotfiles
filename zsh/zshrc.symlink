@@ -111,7 +111,6 @@ then
   # load the path files
   for file in ${(M)config_files:#*/path.zsh}
   do
-    echo "path" $file
     source $file
   done
 

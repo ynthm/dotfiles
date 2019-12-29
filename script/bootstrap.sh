@@ -142,16 +142,19 @@ install_dotfiles () {
 install_homebrew
 install_ohmyzsh
 
-# If we're on a Mac, let's install and setup homebrew.
-if [ "$(uname -s)" == "Darwin" ]
-then
-  info "installing dependencies"
-  if source script/brew.sh
+install_brew_apps () {
+  # If we're on a Mac, let's install and setup homebrew.
+  if [ "$(uname -s)" == "Darwin" ]
   then
-    success "dependencies installed"
-  else
-    fail "error installing dependencies"
+    info "installing dependencies"
+    if source script/brew.sh
+    then
+      success "dependencies installed"
+    else
+      fail "error installing dependencies"
+    fi
   fi
-fi
+}
+install_brew_apps
 
 install_dotfiles
