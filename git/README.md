@@ -17,24 +17,59 @@ vim ~/.gitconfig
 	b = branch
 	c = commit
 	co = checkout
-	cob = checkout
 	st = status
+	dt = difftool
+	dtst = difftool --tool=sourcetree
+	mt = mergetool
+	mtst = mergetool --tool=sourcetree
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [core]
 	excludesfile = ~/.gitignore_global
-[difftool "sourcetree"]
+
+[difftool "vscode"]
 	cmd = /usr/local/bin/code --wait --diff $LOCAL $REMOTE
-	path = 
-[mergetool "sourcetree"]
+[mergetool "vscode"]
 	cmd = /usr/local/bin/code --wait $MERGED
 	trustExitCode = true
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/stree --wait --diff $LOCAL $REMOTE
+[mergetool "sourcetree"]
+	cmd = /usr/local/bin/stree --wait $MERGED
+	trustExitCode = true
+	
+# git config --global diff.tool vscode
+[diff]
+  tool = vscode
+# git config --global merge.tool vscode
+[merge]
+  tool = vscode
 ```
 
 ```sh
+git difftool --tool=vscode
+git config --global diff.tool vscode
+git config --global merge.tool vscode
+
+# git dt
 git difftool
 # 命令用于运行合并冲突解决工具来解决合并冲突。它通常在git合并后运行。
 git mergetool
 ```
+
+
+
+打开 `Beyond Compare`  > `Beyond Compare Menu`  > `Install Command Line Tools`
+ 必须要安装Beyond Compare 命令工具，否则会报错。
+
+```properties
+[difftool "bc"]
+	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE
+[mergetool "bc"]
+	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED
+	trustExitCode = true
+```
+
+
 
 
 
