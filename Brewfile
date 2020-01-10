@@ -11,22 +11,12 @@ tap "homebrew-ffmpeg/ffmpeg"
 brew "autojump"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Charset analyzer and converter
-brew "enca"
 # Key value store for shared configuration and service discovery
 brew "etcd"
-# Standalone library of the Fraunhofer FDK AAC code from Android
-brew "fdk-aac"
-# Command-line encoder frontend for libfdk-aac
-brew "fdk-aac-encoder"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
-# Asynchronous event library
-brew "libev"
-# Toolkit for embedding hypervisor capabilities in your application
-brew "hyperkit"
 # Manage your Java environment
 brew "jenv"
 # Centralized server for distributed coordination of services
@@ -35,10 +25,6 @@ brew "zookeeper"
 brew "kafka"
 # C client library for NFS
 brew "libnfs"
-# NaCl networking and cryptography library
-brew "libsodium"
-# YAML Parser
-brew "libyaml"
 # Java-based project management
 brew "maven"
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
@@ -84,17 +70,14 @@ brew "homebrew-ffmpeg/ffmpeg", args: ["with-fdk-aac"]
 cask "aegisub"
 cask "aerial"
 cask "another-redis-desktop-manager"
-cask "anydesk"
+cask "onedrive"
 cask "baidunetdisk"
-cask "betterzip"
 cask "clipy"
-cask "eudic"
 cask "ezip"
 cask "fliqlo"
 cask "font-hack-nerd-font"
 cask "font-sourcecodepro-nerd-font-mono"
 cask "google-chrome"
-cask "handbrake"
 cask "iina"
 cask "imageoptim"
 cask "intellij-idea"
@@ -119,16 +102,12 @@ cask "qlstephen"
 cask "shadowsocksx-ng"
 cask "sogouinput"
 cask "sourcetree"
-cask "spectacle"
 cask "subler"
 cask "telegram-desktop-dev"
-cask "trufont"
 cask "tunnelblick"
-cask "v2rayx"
 cask 'visual-studio-code'
 cask "cheatsheet"
-cask "iina"
 cask "vagrant"
 cask "youdaodict"
 # HTTP 调试工具
-cask "insomnia"
+# cask "insomnia"

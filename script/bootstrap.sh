@@ -158,3 +158,6 @@ install_brew_apps () {
 install_brew_apps
 
 install_dotfiles
+
+# Disable the “Last login” Message on new Terminal Session
+touch ~/.hushlogin

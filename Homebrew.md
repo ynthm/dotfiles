@@ -67,7 +67,7 @@ socks5 = "127.0.0.1:1086"
 
 
 
-## brew bundle 备份软件
+## [brew bundle](https://github.com/Homebrew/homebrew-bundle) 备份软件
 
 [Homebrew](https://github.com/Homebrew/brew) (on macOS or [Linux](https://docs.brew.sh/Homebrew-on-Linux)) for installing the dependencies.
 
