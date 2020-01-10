@@ -19,9 +19,10 @@ vim ~/.gitconfig
 	co = checkout
 	st = status
 	dt = difftool
-	dtst = difftool --tool=sourcetree
-	mt = mergetool
-	mtst = mergetool --tool=sourcetree
+    dtst = difftool --tool=sourcetree    
+    mt = mergetool
+    mtst = mergetool --tool=sourcetree
+    lgst = log --name-status
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [core]
 	excludesfile = ~/.gitignore_global
@@ -58,18 +59,19 @@ git mergetool
 
 
 
-打开 `Beyond Compare`  > `Beyond Compare Menu`  > `Install Command Line Tools`
+打开 `Beyond Compare`  > `Install Command Line Tools`
  必须要安装Beyond Compare 命令工具，否则会报错。
 
 ```properties
+[alias]
+    dtbc = difftool --tool=bc
+    dtbc = difftool --tool=bc
 [difftool "bc"]
 	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE
 [mergetool "bc"]
 	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED
 	trustExitCode = true
 ```
-
-
 
 
 

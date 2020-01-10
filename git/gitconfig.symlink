@@ -9,11 +9,13 @@
 	c = commit
 	co = checkout
 	st = status
-  dt = difftool
+	dt = difftool
 	dtst = difftool --tool=sourcetree
+	dtbc = difftool --tool=bc
 	mt = mergetool
 	mtst = mergetool --tool=sourcetree
-  lgst = log --name-status
+	dtbc = difftool --tool=bc
+ 	lgst = log --name-status
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [core]
 	excludesfile = ~/.gitignore_global
@@ -26,6 +28,11 @@
 	cmd = /usr/local/bin/stree --wait --diff $LOCAL $REMOTE
 [mergetool "sourcetree"]
 	cmd = /usr/local/bin/stree --wait $MERGED
+	trustExitCode = true
+[difftool "bc"]
+	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE
+[mergetool "bc"]
+	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED
 	trustExitCode = true
 	
 # git config --global diff.tool vscode
