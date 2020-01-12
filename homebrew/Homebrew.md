@@ -34,28 +34,30 @@ brew cask info <package-name>
 # 更新 Homebrew Cask
 brew update
 # brew update --verbose
-brew cask upgrade
+# brew upgrade 软件比较多网络问题建议单个更新 brew cask upgrade
+brew upgrade youtube-dl
+brew cask upgrade typora
 
 # 卸载 uninstall
 brew uninstall <package-name>
 brew cask uninstall <package-name>
 
 # 查看帮助
-man brew
-man brew-cask
+brew --help
+brew cask --help
 ```
 
 
 
 ```sh
-brew tap jenkins-x/jx
-brew untap jenkins-x/jx
+brew tap homebrew/cask-fonts
+brew untap homebrew/cask-fonts
 ```
 
 
 
 ```sh
-# 代理 待测试
+# curl 无法下载 代理 待测试
 vim ~/.curlrc
 ```
 

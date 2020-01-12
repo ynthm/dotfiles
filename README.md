@@ -21,7 +21,7 @@ xcode-select --install
 
 git clone git@github.com:ynthm/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-sh script/bootstrap.sh
+sh bootstrap.sh
 ```
 
 `bootstrap.sh` 自动完成工作:
@@ -39,12 +39,9 @@ sh script/bootstrap.sh
 
 ```sh
 cd
-mkdir .dotfiles
-cd .dotfiles
-pwd
-mkdir zsh
-cp ~/.zshrc ~/.dotfiles/zsh/zshrc.symlink
-brew bundle dump --describe --force --file="~/.dotfiles/Brewfile"
+mkdir -p ~/.dotfiles/config/zsh
+cp ~/.zshrc ~/.dotfiles/config/zsh/zshrc.symlink
+brew bundle dump --describe --force --file="~/.dotfiles/homebrew/Brewfile"
 ```
 
 

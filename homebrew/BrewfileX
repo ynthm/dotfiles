@@ -8,8 +8,6 @@ brew "shadowsocks-libev"
 brew "etcd"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# User-friendly cURL replacement (command-line HTTP client)
-brew "httpie"
 # Manage your Java environment
 brew "jenv"
 # Centralized server for distributed coordination of services
@@ -36,8 +34,6 @@ brew "pyenv-virtualenv"
 brew "redis"
 # Download YouTube videos from the command-line
 brew "youtube-dl"
-# General-purpose lossless data-compression library
-brew "zlib"
 # Internet file retriever
 brew "wget"
 # Terminal multiplexer
@@ -74,3 +70,7 @@ cask "sourcetree"
 cask "metaz"
 cask "baidunetdisk"
 cask "telegram-desktop-dev"
+cask "tinymediamanager"
+cask "qbittorrent"
+
+mas "Xcode", id: 497799835

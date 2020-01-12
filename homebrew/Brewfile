@@ -5,6 +5,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "sambadevi/powerlevel9k"
 
+# Ambitious Vim-fork focused on extensibility and agility
 brew "nvim"
 # Shell extension to jump to frequently used directories
 brew "autojump"
@@ -16,6 +17,8 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # A badass zsh theme with more power than a normal earthling
 brew "sambadevi/powerlevel9k/powerlevel9k"
+# Mac App Store command-line interface
+brew "mas"
 
 cask "cheatsheet"
 # 屏保
@@ -43,4 +46,8 @@ cask "qlmarkdown"
 cask "qlstephen"
 cask "sogouinput"
 cask 'visual-studio-code'
+cask 'typora'
 cask "youdaodict"
+
+mas "WeChat", id: 836500024
+mas "TinyCal", id: 1114272557
