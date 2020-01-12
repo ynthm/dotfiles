@@ -5,3 +5,5 @@ alias ll="ls -Gla"
 alias bs='brew search'
 alias bi='brew install'
 alias bci='brew cask install'
+alias br='brew uninstall'
+alias bcr='brew cask zap'

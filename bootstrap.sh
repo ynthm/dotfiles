@@ -1,24 +1,23 @@
 #!/usr/bin/env bash
 
 # 这条命令写在脚本文件里才有作用 dirname $0 指当前脚本所在目录
-cd "$(dirname $0)/.."
-echo `pwd`
-DOTFILES_ROOT=$(pwd -P)
+DOTFILES_ROOT=$(cd "$(dirname "$0")";pwd)
+# echo `pwd`
 
 info () {
-  printf "\r  [\033[00;34mINFO\033[0m] $1\n"
+  printf "\r[\033[00;36mINFO\033[0m] $1\n"
 }
 # 用户选择
 user () {
-  printf "\r  [ \033[0;33m?\033[0m ] $1\n"
+  printf "\r[ \033[0;33m??\033[0m ] $1\n"
 }
 
-success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+ok () {
+  printf "\r\033[2K[ \033[00;32mOK\033[0m ] $1\n"
 }
 
 fail () {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  printf "\r\033[2K[\033[0;31mFAIL\033[0m] $1\n"
   echo ''
   exit
 }
@@ -26,7 +25,7 @@ fail () {
 install_homebrew () {
   if test ! $(which brew)
   then
-    echo "  Installing Homebrew for you..."
+    info "Installing Homebrew for you..."
 
     # Install the correct homebrew for each OS type
     if test "$(uname)" = "Darwin"
@@ -44,7 +43,7 @@ install_homebrew () {
 install_ohmyzsh () {
   if [ ! -d ~/.oh-my-zsh ]
   then
-    info '  Installing oh-my-zsh'
+    info 'Installing oh-my-zsh'
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
   else
     echo '👏🏻👏🏻👏🏻 Oh My Zsh already installed.'
@@ -104,40 +103,39 @@ link_file () {
     if [ "$overwrite" == "true" ]
     then
       rm -rf "$dst"
-      success "removed $dst"
+      ok "removed $dst"
     fi
 
     if [ "$backup" == "true" ]
     then
       mv "$dst" "${dst}.backup"
-      success "moved $dst to ${dst}.backup"
+      ok "moved $dst to ${dst}.backup"
     fi
 
     if [ "$skip" == "true" ]
     then
-      success "skipped $src"
+      ok "skipped $src"
     fi
   fi
 
   if [ "$skip" != "true" ]  # "false" or empty
   then
     ln -s "$1" "$2"
-    success "linked $1 to $2"
+    ok "linked $1 to $2"
   fi
 }
 
 install_dotfiles () {
-  info '  Installing dotfiles'
+  info 'Installing dotfiles'
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find "$DOTFILES_ROOT/config" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
 }
-
 
 install_homebrew
 install_ohmyzsh
@@ -146,12 +144,15 @@ install_brew_apps () {
   # If we're on a Mac, let's install and setup homebrew.
   if [ "$(uname -s)" == "Darwin" ]
   then
-    info "installing dependencies"
-    if source script/brew.sh
+    info "Installing dependencies"
+    # 执行其他脚本
+    cd $DOTFILES_ROOT
+    cd script
+    if source brew.sh
     then
-      success "dependencies installed"
+      ok "Dependencies installed"
     else
-      fail "error installing dependencies"
+      fail "Error installing dependencies"
     fi
   fi
 }
@@ -161,3 +162,15 @@ install_dotfiles
 
 # Disable the “Last login” Message on new Terminal Session
 touch ~/.hushlogin
+
+install_spacevim () {
+  if [ ! -d ~/.SpaceVim.d ]
+  then
+    info "Installing SpaceVim for you..."
+    curl -sLf https://spacevim.org/cn/install.sh | bash
+  else
+    echo '💋💋💋 SpaceVim already installed.'
+  fi
+}
+
+install_spacevim

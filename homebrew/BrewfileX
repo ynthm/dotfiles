@@ -1,16 +1,9 @@
 tap "elastic/tap"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
-tap "homebrew/core"
-tap "mongodb/brew"
-tap "sambadevi/powerlevel9k"
 tap "homebrew-ffmpeg/ffmpeg"
-# Shell extension to jump to frequently used directories
-brew "autojump"
-# Clone of cat(1) with syntax highlighting and Git integration
-brew "bat"
+tap "mongodb/brew"
+
+# Libev port of shadowsocks
+brew "shadowsocks-libev"
 # Key value store for shared configuration and service discovery
 brew "etcd"
 # Open source programming language to build simple/reliable/efficient software
@@ -41,73 +34,43 @@ brew "pyenv"
 brew "pyenv-virtualenv"
 # Persistent key-value database, with built-in net interface
 brew "redis"
-# Libev port of shadowsocks
-brew "shadowsocks-libev"
-# User interface to the TELNET protocol (built from macOS Sierra sources)
-brew "telnet"
-# Terminal multiplexer
-brew "tmux"
-# Internet file retriever
-brew "wget"
 # Download YouTube videos from the command-line
 brew "youtube-dl"
 # General-purpose lossless data-compression library
 brew "zlib"
-# Fish-like fast/unobtrusive autosuggestions for zsh
-brew "zsh-autosuggestions"
-# Fish shell like syntax highlighting for zsh
-brew "zsh-syntax-highlighting"
+# Internet file retriever
+brew "wget"
+# Terminal multiplexer
+brew "tmux"
+# User interface to the TELNET protocol (built from macOS Sierra sources)
+brew "telnet"
 # Distributed search & analytics engine
 brew "elastic/tap/elasticsearch-full"
 # Analytics and search dashboard for Elasticsearch
 brew "elastic/tap/kibana-full"
 # High-performance, schema-free, document-oriented database
 brew "mongodb/brew/mongodb-community"
-# A badass zsh theme with more power than a normal earthling
-brew "sambadevi/powerlevel9k/powerlevel9k"
 # Play, record, convert, and stream audio and video
 brew "homebrew-ffmpeg/ffmpeg", args: ["with-fdk-aac"]
+
 cask "aegisub"
-cask "aerial"
 cask "another-redis-desktop-manager"
-cask "onedrive"
-cask "baidunetdisk"
-cask "clipy"
-cask "ezip"
-cask "fliqlo"
-cask "font-hack-nerd-font"
-cask "font-sourcecodepro-nerd-font-mono"
-cask "google-chrome"
-cask "iina"
-cask "imageoptim"
 cask "intellij-idea"
-cask "iterm2"
-cask "itsycal"
-cask "java11"
 cask "java8"
+cask "java11"
 cask "jd-gui"
-cask "jietu"
 cask "kafka-tool"
 cask "keka"
 cask "makemkv"
-cask "mediainfo"
-cask "metaz"
 cask "microsoft-remote-desktop-beta"
-cask "mos"
 cask "qiyimedia"
-cask "qlcolorcode"
-cask "qlimagesize"
-cask "qlmarkdown"
-cask "qlstephen"
-cask "shadowsocksx-ng"
-cask "sogouinput"
-cask "sourcetree"
-cask "subler"
-cask "telegram-desktop-dev"
 cask "tunnelblick"
-cask 'visual-studio-code'
-cask "cheatsheet"
+cask "shadowsocksx-ng"
 cask "vagrant"
-cask "youdaodict"
+cask "subler"
 # HTTP 调试工具
 # cask "insomnia"
+cask "sourcetree"
+cask "metaz"
+cask "baidunetdisk"
+cask "telegram-desktop-dev"

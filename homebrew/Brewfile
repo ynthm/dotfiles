@@ -1,0 +1,46 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "sambadevi/powerlevel9k"
+
+brew "nvim"
+# Shell extension to jump to frequently used directories
+brew "autojump"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
+# A badass zsh theme with more power than a normal earthling
+brew "sambadevi/powerlevel9k/powerlevel9k"
+
+cask "cheatsheet"
+# 屏保
+cask "aerial"
+cask "fliqlo"
+cask "onedrive"
+cask "clipy"
+cask "ezip"
+cask "font-hack-nerd-font"
+# Source Code Pro
+cask "font-sourcecodepro-nerd-font-mono"
+# 微软 Cascadia Code
+cask "font-cascadia-mono-pl"
+cask "google-chrome"
+cask "iina"
+cask "imageoptim"
+cask "iterm2"
+cask "itsycal"
+cask "jietu"
+cask "mediainfo"
+cask "mos"
+cask "qlcolorcode"
+cask "qlimagesize"
+cask "qlmarkdown"
+cask "qlstephen"
+cask "sogouinput"
+cask 'visual-studio-code'
+cask "youdaodict"
