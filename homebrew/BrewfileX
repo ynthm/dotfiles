@@ -52,7 +52,7 @@ brew "homebrew-ffmpeg/ffmpeg", args: ["with-fdk-aac"]
 cask "aegisub"
 cask "another-redis-desktop-manager"
 cask "intellij-idea"
-cask "java8"
+cask "adoptopenjdk8"
 cask "java11"
 cask "jd-gui"
 cask "kafka-tool"
@@ -72,5 +72,6 @@ cask "baidunetdisk"
 cask "telegram-desktop-dev"
 cask "tinymediamanager"
 cask "qbittorrent"
+cask "tinymediamanager"
 
 mas "Xcode", id: 497799835
