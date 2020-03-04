@@ -1,0 +1,4 @@
+# Use this proxy
+--proxy "socks5://127.0.0.1:1086/"
+# Save all videos under Movies directory in your home directory
+-o ~/Downloads/%(title)s-%(id)s-%(format_id)s.%(ext)s

@@ -25,9 +25,10 @@
 	cmd = /usr/local/bin/code --wait $MERGED
 	trustExitCode = true
 [difftool "sourcetree"]
-	cmd = /usr/local/bin/stree --wait --diff $LOCAL $REMOTE
+	cmd = /usr/local/bin/code --wait --diff $LOCAL $REMOTE
+	path = 
 [mergetool "sourcetree"]
-	cmd = /usr/local/bin/stree --wait $MERGED
+	cmd = /usr/local/bin/code --wait $MERGED
 	trustExitCode = true
 [difftool "bc"]
 	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE

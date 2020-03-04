@@ -11,3 +11,5 @@ alias bi='brew install'
 alias bci='brew cask install'
 alias br='brew uninstall'
 alias bcr='brew cask zap'
+alias yF='youtube-dl -F --no-check-certificate'
+alias yf="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' --no-check-certificate"
