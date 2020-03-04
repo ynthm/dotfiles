@@ -97,3 +97,19 @@ brew bundle list --all
 # 批量安装软件
 brew bundle --file="~/Desktop/Brewfile"
 ```
+
+
+
+## 无法下载安装文件
+
+```sh
+# 查看安装文件缓存位置
+brew --cache
+ll ~/Library/Caches/Homebrew
+ll ~/Library/Caches/Homebrew/Cask
+
+cd ~/Library/Caches/Homebrew/Cask
+wget https://osx.telegram.org/updates/Telegram-5.9.1.189475.app.zip
+brew cask install telegram
+```
+
