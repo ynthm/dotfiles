@@ -125,8 +125,18 @@ link_file () {
   fi
 }
 
+link() {
+  if [ ! -d $HOME/.config/youtube-dl/config ]
+  then
+    info "config youtube-dl"
+    mkdir ~/.config/youtube-dl
+    ln -s "$DOTFILES_ROOT/config/youtube-dl/config" "$HOME/.config/youtube-dl/config"
+  fi
+}
+
 install_dotfiles () {
   info 'Installing dotfiles'
+  link()
 
   local overwrite_all=false backup_all=false skip_all=false
 
