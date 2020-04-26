@@ -1,3 +1,4 @@
+setopt no_nomatch
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 

@@ -13,3 +13,4 @@ alias br='brew uninstall'
 alias bcr='brew cask zap'
 alias yF='youtube-dl -F --no-check-certificate'
 alias yf="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' --no-check-certificate"
+alias yfb="youtube-dl -f 'bestvideo+bestaudio' --no-check-certificate"
