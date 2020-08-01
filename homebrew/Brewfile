@@ -20,34 +20,30 @@ brew "sambadevi/powerlevel9k/powerlevel9k"
 # Mac App Store command-line interface
 brew "mas"
 
+cask "iterm2"
+cask "google-chrome"
+cask 'visual-studio-code'
+cask 'typora'
+cask "sogouinput"
 cask "cheatsheet"
 # 屏保
 cask "aerial"
-cask "fliqlo"
+
 cask "onedrive"
-cask "clipy"
 cask "ezip"
+
 cask "font-hack-nerd-font"
 # Source Code Pro
-cask "font-sourcecodepro-nerd-font-mono"
+# cask "font-sourcecodepro-nerd-font-mono"
 # 微软 Cascadia Code
-cask "font-cascadia-mono-pl"
-cask "google-chrome"
+# cask "font-cascadia-mono-pl"
+
 cask "iina"
-cask "imageoptim"
-cask "iterm2"
-cask "itsycal"
-cask "jietu"
-cask "mediainfo"
 cask "mos"
 cask "qlcolorcode"
 cask "qlimagesize"
 cask "qlmarkdown"
 cask "qlstephen"
-cask "sogouinput"
-cask 'visual-studio-code'
-cask 'typora'
 cask "youdaodict"
 
 mas "WeChat", id: 836500024
-mas "TinyCal", id: 1114272557

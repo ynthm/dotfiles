@@ -100,6 +100,39 @@ brew bundle --file="~/Desktop/Brewfile"
 
 
 
+
+
+## 源
+
+```sh
+# 以下针对 mac OS 系统上的 Homebrew
+git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
+git -C "$(brew --repo homebrew/cask-fonts)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-fonts.git
+git -C "$(brew --repo homebrew/cask-drivers)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-drivers.git
+```
+
+
+
+```shell
+cd "$(brew --repo)" 
+git remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git 
+
+cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core" 
+git remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git 
+
+echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles' >> ~/.zshrc
+source ~/.zshrc
+# 不自动更新
+echo 'export HOMEBREW_NO_AUTO_UPDATE=true' >> ~/.zshrc
+```
+
+
+
+
+
+
+
 ## 无法下载安装文件
 
 ```sh
@@ -111,5 +144,26 @@ ll ~/Library/Caches/Homebrew/Cask
 cd ~/Library/Caches/Homebrew/Cask
 wget https://osx.telegram.org/updates/Telegram-5.9.1.189475.app.zip
 brew cask install telegram
+
+aria2c --all-proxy="http://127.0.0.1:1087" https://github.com/JohnCoates/Aerial/releases/download/v1.9.2/Aerial.saver.zip
+brew cask info aerial
+# aerial: 1.9.2
+mv Aerial.saver.zip aerial--1.9.2.zip
+
+aria2c --all-proxy="http://127.0.0.1:1087" https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
+```
+
+
+
+搭建 http 服务器
+
+```sh
+brew cask edit aerial
+# 手动下载 url 对应的安装包，放置 http 服务器下。
+# 将 url 修改为 http 服务器对应文件的网址
+
+# 修改的 git 仓库在下面目录，可以回退
+cd $(brew --repo homebrew/cask)
+cd $(brew --repo homebrew/core)
 ```
 

@@ -26,19 +26,13 @@ install_homebrew () {
   if test ! $(which brew)
   then
     info "Installing Homebrew for you..."
-
-    # Install the correct homebrew for each OS type
-    if test "$(uname)" = "Darwin"
-    then
-      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
-    then
-      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
-    fi
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   else
     echo '💋💋💋 Homebrew already installed.'
   fi
 }
+
+install_homebrew
 
 install_ohmyzsh () {
   if [ ! -d ~/.oh-my-zsh ]
@@ -49,6 +43,36 @@ install_ohmyzsh () {
     echo '👏🏻👏🏻👏🏻 Oh My Zsh already installed.'
   fi
 }
+
+install_ohmyzsh
+
+
+if [ "$SHELL" != "/bin/zsh" ]
+  then
+    chsh -s $(which zsh)
+fi
+
+
+install_brew_apps () {
+  # If we're on a Mac, let's install and setup homebrew.
+  if [ "$(uname -s)" == "Darwin" ]
+  then
+    info "Installing dependencies"
+    # 执行其他脚本
+    cd $DOTFILES_ROOT
+    cd script
+    if source brew.sh
+    then
+      ok "Dependencies installed"
+    else
+      fail "Error installing dependencies"
+    fi
+  fi
+}
+
+install_brew_apps
+
+
 
 link_file () {
   local src=$1 dst=$2
@@ -125,7 +149,7 @@ link_file () {
   fi
 }
 
-link() {
+link () {
   if [ ! -d $HOME/.config/youtube-dl/config ]
   then
     info "config youtube-dl"
@@ -134,9 +158,9 @@ link() {
   fi
 }
 
-install_dotfiles () {
+install_dotfiles() {
   info 'Installing dotfiles'
-  link()
+  link
 
   local overwrite_all=false backup_all=false skip_all=false
 
@@ -147,31 +171,7 @@ install_dotfiles () {
   done
 }
 
-install_homebrew
-install_ohmyzsh
-
-install_brew_apps () {
-  # If we're on a Mac, let's install and setup homebrew.
-  if [ "$(uname -s)" == "Darwin" ]
-  then
-    info "Installing dependencies"
-    # 执行其他脚本
-    cd $DOTFILES_ROOT
-    cd script
-    if source brew.sh
-    then
-      ok "Dependencies installed"
-    else
-      fail "Error installing dependencies"
-    fi
-  fi
-}
-install_brew_apps
-
 install_dotfiles
-
-# Disable the “Last login” Message on new Terminal Session
-touch ~/.hushlogin
 
 install_spacevim () {
   if [ ! -d ~/.SpaceVim.d ]
@@ -183,4 +183,7 @@ install_spacevim () {
   fi
 }
 
-install_spacevim
+# install_spacevim
+
+# Disable the “Last login” Message on new Terminal Session
+touch ~/.hushlogin

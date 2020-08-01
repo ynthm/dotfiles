@@ -49,6 +49,11 @@ brew "mongodb/brew/mongodb-community"
 # Play, record, convert, and stream audio and video
 brew "homebrew-ffmpeg/ffmpeg", args: ["with-fdk-aac"]
 
+cask "fliqlo"
+cask "clipy"
+cask "itsycal"
+cask "mediainfo"
+cask "imageoptim"
 cask "aegisub"
 cask "another-redis-desktop-manager"
 cask "intellij-idea"
@@ -69,9 +74,8 @@ cask "subler"
 cask "sourcetree"
 cask "metaz"
 cask "baidunetdisk"
-cask "telegram-desktop-dev"
+cask "telegram-desktop"
 cask "tinymediamanager"
 cask "qbittorrent"
-cask "tinymediamanager"
 
 mas "Xcode", id: 497799835
