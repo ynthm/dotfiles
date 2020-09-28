@@ -45,6 +45,21 @@ brew cask uninstall <package-name>
 # 查看帮助
 brew --help
 brew cask --help
+
+```
+
+### 服务管理
+
+```sh
+brew services --help
+# 服务状态 查看使用brew安装的服务列表
+brew services
+brew services list
+brew services run formula|--all  # 启动服务（仅启动不注册）
+brew services start formula|--all  # 启动服务，并注册
+brew services stop formula|--all   # 停止服务，并取消注册
+brew services restart formula|--all  # 重启服务，并注册
+brew services cleanup  # 清除已卸载应用的无用的配置
 ```
 
 
@@ -165,5 +180,45 @@ brew cask edit aerial
 # 修改的 git 仓库在下面目录，可以回退
 cd $(brew --repo homebrew/cask)
 cd $(brew --repo homebrew/core)
+```
+
+
+
+## Quick Look plugin
+
+```sh
+# 代码 自动安装 highlight
+brew cask install qlcolorcode
+brew cask install qlmarkdown
+brew cask install qlimagesize mdimagesizemdimporter
+# 压缩包  dmg
+brew cask install betterzip
+# 无后缀名的文件
+brew cask install qlstephen
+# srt
+brew cask install qladdict
+# Finder to display thumbnails, static previews, cover art and metadata for most types of video files.
+brew cask install qlvideo
+# 重启 QuickLook
+qlmanage -r
+
+
+# 需要注意的是如果 macOS 系统版本是 10.15 Catalina 及以上，安装完插件后需要额外执行一下
+xattr -r ~/Library/QuickLook
+xattr -d -r com.apple.quarantine ~/Library/QuickLook
+qlmanage -r
+# 以解决运行不了 QuickLook 插件的问题
+
+# 查看文件格式的类型
+mdls -name kMDItemContentType ./ABP-475.srt
+# kMDItemContentType = "dyn.ah62d4rv4ge81g6xy"
+
+vim ~/Library/QuickLook/QLStephen.qlgenerator/Contents/Info.plist
+
+~/Library/QuickLook/QLColorCode.qlgenerator/Contents/Info.plist
+
+找到 Document types > Item 0 > Document Content Type UTIs (CFBundleDocumentTypes > Item 0 > LSItemContentTypes
+
+com.apple.disk-image-dart
 ```
 
