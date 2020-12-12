@@ -1,7 +1,0 @@
-Host github.com
-  HostName github.com
-  IdentityFile ~/.ssh/id_rsa
-
-Host work
-  HostName github.com
-  IdentityFile ~/.ssh/id_rsa_work

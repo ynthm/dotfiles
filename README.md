@@ -12,14 +12,14 @@
 
 -  👉 macOS
 
--  👉 安装 Xcode
+-  👉 安装 Xcode Command Line Tools
 -  👉 开启 Terminal   🤙命令成功执行后  推荐用 iTerm 2
 
 ```sh
 # Xcode Command Line Tools
 xcode-select --install
 
-git clone git@github.com:ynthm/dotfiles.git ~/.dotfiles
+git clone https://github.com/ynthm/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 sh bootstrap.sh
 ```
@@ -60,6 +60,3 @@ git add .
 git commit -m 'init dotfiles'
 git push -u origin master
 ```
-
-
-

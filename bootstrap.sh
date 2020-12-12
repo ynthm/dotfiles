@@ -34,7 +34,7 @@ install_homebrew() {
   fi
 }
 
-install_homebrew
+
 
 install_ohmyzsh() {
   if [ ! -d ~/.oh-my-zsh ]; then
@@ -45,7 +45,7 @@ install_ohmyzsh() {
   fi
 }
 
-install_ohmyzsh
+
 
 if [ "$SHELL" != "/bin/zsh" ]; then
   chsh -s $(which zsh)
@@ -66,7 +66,7 @@ install_brew_apps() {
   fi
 }
 
-install_brew_apps
+
 
 link_file() {
   local src=$1 dst=$2
@@ -162,8 +162,6 @@ install_dotfiles() {
   done
 }
 
-install_dotfiles
-
 install_spacevim() {
   if [ ! -d ~/.SpaceVim.d ]; then
     info "Installing SpaceVim for you..."
@@ -173,7 +171,37 @@ install_spacevim() {
   fi
 }
 
-# install_spacevim
+
+PS3='Please enter your choice: '
+options=("Install all" "Install homebrew" "Install ohmyzsh" "Install brew apps" "Link dotfiles" "Quit")
+select opt in "${options[@]}"
+do
+  case $opt in
+     "Install all")
+        install_homebrew
+        install_ohmyzsh
+        install_brew_apps
+        install_dotfiles
+        # install_spacevim
+            ;;
+        "Install homebrew")
+            install_homebrew
+            ;;
+        "Install ohmyzsh")
+            install_ohmyzsh
+            ;;
+        "Install brew apps")
+            install_brew_apps
+            ;;
+        "Link dotfiles")
+            xargs -L 1 sh config/link/link-pairs.sh <$DOTFILES_ROOT/config/link/link-pairs.txt
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo invalid option;;
+    esac
+done
 
 # Disable the “Last login” Message on new Terminal Session
 touch ~/.hushlogin
