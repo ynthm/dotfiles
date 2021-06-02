@@ -19,7 +19,7 @@
 # Xcode Command Line Tools
 xcode-select --install
 
-git clone https://github.com/ynthm/dotfiles.git ~/.dotfiles
+git clone git@github.com:ynthm/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 sh bootstrap.sh
 ```
