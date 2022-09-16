@@ -1,44 +1,44 @@
-_COLUMNS=$(tput cols)
+# _COLUMNS=$(tput cols)
+_COLUMNS=$COLUMNS
 _MESSAGE=" FBI Warining "
 y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
 spaces=$(printf "%-${y}s" " ")
 
 echo " "
-echo -e "${spaces}\033[41;37;5m FBI WARNING \033[0m"
+# \033[开始 + 特效叠加;隔开 + m结尾
+F_WHITE_B_RED='\033[1;41;97;5m' # 白字红背景 1粗体文本  5闪烁文本 41背景红色  97文字高亮白色
+WHITE='\033[97m'
+COLOR_OFF='\033[0m' # No Color 0常规文本  
+echo -e "${spaces}${F_WHITE_B_RED} FBI WARNING ${COLOR_OFF}"
 echo " "
-_COLUMNS=$(tput cols)
+
 _MESSAGE="Ferderal Law provides severe civil and criminal penalties for"
 y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
 spaces=$(printf "%-${y}s" " ")
-echo -e "${spaces}${_MESSAGE}"
+echo -e "${spaces}${WHITE}${_MESSAGE}${COLOR_OFF}"
 
-_COLUMNS=$(tput cols)
 _MESSAGE="the unauthorized reproduction, distribution, or exhibition of"
 y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
 spaces=$(printf "%-${y}s" " ")
-echo -e "${spaces}${_MESSAGE}"
+echo -e "${spaces}${WHITE}${_MESSAGE}${COLOR_OFF}"
 
-_COLUMNS=$(tput cols)
 _MESSAGE="copyrighted motion pictures (Title 17, United States Code,"
 y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
 spaces=$(printf "%-${y}s" " ")
-echo -e "${spaces}${_MESSAGE}"
+echo -e "${spaces}${WHITE}${_MESSAGE}${COLOR_OFF}"
 
-_COLUMNS=$(tput cols)
 _MESSAGE="Sections 501 and 508). The Federal Bureau of Investigation"
 y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
 spaces=$(printf "%-${y}s" " ")
-echo -e "${spaces}${_MESSAGE}"
+echo -e "${spaces}${WHITE}${_MESSAGE}${COLOR_OFF}"
 
-_COLUMNS=$(tput cols)
 _MESSAGE="investigates allegations of criminal copyright infringement"
 y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
 spaces=$(printf "%-${y}s" " ")
-echo -e "${spaces}${_MESSAGE}"
+echo -e "${spaces}${WHITE}${_MESSAGE}${COLOR_OFF}"
 
-_COLUMNS=$(tput cols)
 _MESSAGE="(Title 17, United States Code, Section 506)."
 y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
 spaces=$(printf "%-${y}s" " ")
-echo -e "${spaces}${_MESSAGE}"
+echo -e "${spaces}${WHITE}${_MESSAGE}${COLOR_OFF}"
 echo " "

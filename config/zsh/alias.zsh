@@ -14,5 +14,6 @@ alias yfb="youtube-dl -f 'bestvideo+bestaudio' --no-check-certificate"
 
 alias ysub="youtube-dl --all-subs --skip-download"
 
+# alias ytbestmp4="yt-dlp -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4] / bv*+ba/b""
 
 alias port-listen="lsof -i -P | grep -i "listen""
