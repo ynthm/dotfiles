@@ -6,14 +6,11 @@
 
 文件夹可以通过 git 、 dropbox 进行备份。
 
-
-
 ## 初始化安装配置
 
--  👉 macOS
-
--  👉 安装 Xcode Command Line Tools
--  👉 开启 Terminal   🤙命令成功执行后  推荐用 iTerm 2
+- 👉 macOS
+- 👉 安装 Xcode Command Line Tools
+- 👉 开启 Terminal   🤙命令成功执行后  推荐用 iTerm 2
 
 ```sh
 # Xcode Command Line Tools
@@ -31,8 +28,6 @@ sh bootstrap.sh
 3. 更新并安装 Homebrew packages (binaries, fonts, apps)。
 4. 检查并建立软连接 dotfiles (.zshrc, .vimrc, .gitconfig, .gitignore, ...)。
 
-
-
 ## Github 备份 dotfiles
 
 创建自己的  dotfiles 文件夹，备份自己的配置。
@@ -43,8 +38,6 @@ mkdir -p ~/.dotfiles/config/zsh
 cp ~/.zshrc ~/.dotfiles/config/zsh/zshrc.symlink
 brew bundle dump --describe --force --file="~/.dotfiles/homebrew/Brewfile"
 ```
-
-
 
 提交到 Github， 现在 Github 创建空的 dotfiles
 

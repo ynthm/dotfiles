@@ -1,3 +1,5 @@
+# 配置
+
 ## git
 
 git 全局配置
@@ -8,36 +10,36 @@ vim ~/.gitconfig
 
 ```properties
 [user]
-	name = Ynthm Wang
-	email = ynthm.w@gmail.com
+  name = Ynthm Wang
+  email = ynthm.w@gmail.com
 [http]
-	postBuffer = 524288000
+  postBuffer = 524288000
 [alias]
-	a = add
-	b = branch
-	c = commit
-	co = checkout
-	st = status
-	dt = difftool
+  a = add
+  b = branch
+  c = commit
+  co = checkout
+  st = status
+  dt = difftool
     dtst = difftool --tool=sourcetree    
     mt = mergetool
     mtst = mergetool --tool=sourcetree
     lgst = log --name-status
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
 
 [difftool "vscode"]
-	cmd = /usr/local/bin/code --wait --diff $LOCAL $REMOTE
+  cmd = /usr/local/bin/code --wait --diff $LOCAL $REMOTE
 [mergetool "vscode"]
-	cmd = /usr/local/bin/code --wait $MERGED
-	trustExitCode = true
+  cmd = /usr/local/bin/code --wait $MERGED
+  trustExitCode = true
 [difftool "sourcetree"]
-	cmd = /usr/local/bin/stree --wait --diff $LOCAL $REMOTE
+  cmd = /usr/local/bin/stree --wait --diff $LOCAL $REMOTE
 [mergetool "sourcetree"]
-	cmd = /usr/local/bin/stree --wait $MERGED
-	trustExitCode = true
-	
+  cmd = /usr/local/bin/stree --wait $MERGED
+  trustExitCode = true
+  
 # git config --global diff.tool vscode
 [diff]
   tool = vscode
@@ -57,8 +59,6 @@ git difftool
 git mergetool
 ```
 
-
-
 打开 `Beyond Compare`  > `Install Command Line Tools`
  必须要安装Beyond Compare 命令工具，否则会报错。
 
@@ -67,13 +67,11 @@ git mergetool
     dtbc = difftool --tool=bc
     dtbc = difftool --tool=bc
 [difftool "bc"]
-	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE
+  cmd = /usr/local/bin/bcomp $LOCAL $REMOTE
 [mergetool "bc"]
-	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED
-	trustExitCode = true
+  cmd = /usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED
+  trustExitCode = true
 ```
-
-
 
 ```sh
 cd ~/.dotfiles
@@ -82,8 +80,6 @@ git config user.name "Ynthm Wang"
 git config user.email "ynthm.w@gmail.com"
 git config --local --list
 ```
-
-
 
 sourcetree
 
@@ -101,11 +97,7 @@ Virtual Studio Code 作为  diff 工具
 
 命令 /usr/local/bin/code
 
-参数  ` --wait $MERGED`
-
-
-
-
+参数  `--wait $MERGED`
 
 ## Java
 
@@ -118,15 +110,11 @@ brew tap AdoptOpenJDK/openjdk
 brew cask install <version>
 ```
 
-
-
 jenv 不推荐
 
 - 需要手动把`eval "$(jenv init -)"`加入 profile
 - 需要手动添加 JDK，不会自动采集系统 JDK。
 - 需要 `jenv rehash`
-
-
 
 ```sh
 function setjdk() {
@@ -145,10 +133,6 @@ function java-v(){
     /usr/libexec/java_home -V
 }
 ```
-
-
-
-
 
 ## MongoDB
 
@@ -170,10 +154,6 @@ mongo
 mongo --port 28015
 mongo --host mongodb0.example.com:28015
 ```
-
-
-
-
 
 ## Python
 
@@ -218,5 +198,3 @@ pyenv deactivate
 # 删除虚拟环境
 pyenv uninstall env366
 ```
-
-[pyenv commands](
