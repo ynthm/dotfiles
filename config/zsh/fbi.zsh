@@ -6,7 +6,8 @@ spaces=$(printf "%-${y}s" " ")
 
 echo " "
 # \033[开始 + 特效叠加;隔开 + m结尾
-F_WHITE_B_RED='\033[1;41;97;5m' # 白字红背景 1粗体文本  5闪烁文本 41背景红色  97文字高亮白色
+# F_WHITE_B_RED='\033[1;41;97;5m' # 白字红背景 1粗体文本  5闪烁文本 41背景红色  97文字高亮白色
+F_WHITE_B_RED='\033[38;2;255;255;255m\033[48;2;255;0;0m'
 WHITE='\033[97m'
 COLOR_OFF='\033[0m' # No Color 0常规文本  
 echo -e "${spaces}${F_WHITE_B_RED} FBI WARNING ${COLOR_OFF}"

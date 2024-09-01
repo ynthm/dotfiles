@@ -76,7 +76,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions zsh-syntax-highlighting git z extract vi-mode)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting git z extract vi-mode ruby)
 # pyenv
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -123,3 +123,22 @@ then
   source $DOTFILES/config/zsh/func.zsh
   source $DOTFILES/config/zsh/path.zsh
 fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/ynthm/Apps/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/ynthm/Apps/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/ynthm/Apps/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/ynthm/Apps/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

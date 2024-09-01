@@ -8,12 +8,16 @@ alias bif='brew info'
 alias br='brew uninstall'
 alias bcr='brew cask zap'
 
-alias yF='youtube-dl -F --no-check-certificate'
-alias yf="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' --no-check-certificate"
-alias yfb="youtube-dl -f 'bestvideo+bestaudio' --no-check-certificate"
+pcp='rsync -r --progress'
 
-alias ysub="youtube-dl --all-subs --skip-download"
+# alias yF='youtube-dl -F --no-check-certificate'
+# $YDL -U 升级  $YDL --version
+# ~/.config/youtube-dl/config
+YDL=~/Apps/yt-dlp/yt-dlp_macos
+alias yF="$YDL -F --no-check-certificate"
+alias yf="$YDL -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' --no-check-certificate"
+alias yfb="$YDL -f 'bestvideo+bestaudio' --no-check-certificate"
 
-# alias ytbestmp4="yt-dlp -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4] / bv*+ba/b""
+alias ysub="$YDL --all-subs --skip-download"
 
 alias port-listen="lsof -i -P | grep -i "listen""

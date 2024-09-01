@@ -1,4 +1,4 @@
-youtube-dl youtube-dl-config /.config/youtube-dl/config
+youtube-dl youtube-dl-config.sh /.config/youtube-dl/config
 zshrc zshrc.symlink /.zshrc
 gitconfig gitconfig.symlink /.gitconfig
 gitignore_global  gitignore_global.symlink /.gitignore_global
