@@ -1,11 +1,9 @@
-## Homebrew
+# Homebrew
 
 安装 App 一般有以下方式
 
 - App Store 软件商店
 - brew  包该管理工具
-
-
 
 [Homebrew](https://brew.sh/) macOS 包管理工具，官方称之为缺失的软件包的管理器
 
@@ -21,7 +19,7 @@ Homebrew只能用于安装命令行软件，不能用于安装带图形界面的
 # 搜索软件包，支持模糊搜索。  
 brew search <package-name>
 
-# 安装软件
+# 安装软件 m1 安装在 /opt/homebrew
 brew install <Formulae>
 brew cask install <Casks>
 
@@ -48,7 +46,7 @@ brew cask --help
 
 ```
 
-### 服务管理
+## 服务管理
 
 ```sh
 brew services --help
@@ -62,14 +60,10 @@ brew services restart formula|--all  # 重启服务，并注册
 brew services cleanup  # 清除已卸载应用的无用的配置
 ```
 
-
-
 ```sh
 brew tap homebrew/cask-fonts
 brew untap homebrew/cask-fonts
 ```
-
-
 
 ```sh
 # curl 无法下载 代理 待测试
@@ -80,10 +74,6 @@ vim ~/.curlrc
 socks5 = "127.0.0.1:1086"
 ```
 
-
-
-
-
 ## [brew bundle](https://github.com/Homebrew/homebrew-bundle) 备份软件
 
 [Homebrew](https://github.com/Homebrew/brew) (on macOS or [Linux](https://docs.brew.sh/Homebrew-on-Linux)) for installing the dependencies.
@@ -91,8 +81,6 @@ socks5 = "127.0.0.1:1086"
 [Homebrew Cask](https://github.com/Homebrew/homebrew-cask) is optional and used for installing Mac applications.
 
 [mas-cli](https://github.com/argon/mas) is optional and used for installing Mac App Store applications.
-
-
 
 ```sh
 # 安装 mas 如果你想备份 App Store 的软件
@@ -113,10 +101,6 @@ brew bundle list --all
 brew bundle --file="~/Desktop/Brewfile"
 ```
 
-
-
-
-
 ## 源
 
 ```sh
@@ -126,8 +110,6 @@ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna
 git -C "$(brew --repo homebrew/cask-fonts)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-fonts.git
 git -C "$(brew --repo homebrew/cask-drivers)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-drivers.git
 ```
-
-
 
 ```shell
 cd "$(brew --repo)" 
@@ -141,12 +123,6 @@ source ~/.zshrc
 # 不自动更新
 echo 'export HOMEBREW_NO_AUTO_UPDATE=true' >> ~/.zshrc
 ```
-
-
-
-
-
-
 
 ## 无法下载安装文件
 
@@ -168,8 +144,6 @@ mv Aerial.saver.zip aerial--1.9.2.zip
 aria2c --all-proxy="http://127.0.0.1:1087" https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
 ```
 
-
-
 搭建 http 服务器
 
 ```sh
@@ -181,8 +155,6 @@ brew cask edit aerial
 cd $(brew --repo homebrew/cask)
 cd $(brew --repo homebrew/core)
 ```
-
-
 
 ## Quick Look plugin
 
@@ -221,4 +193,3 @@ vim ~/Library/QuickLook/QLStephen.qlgenerator/Contents/Info.plist
 
 com.apple.disk-image-dart
 ```
-

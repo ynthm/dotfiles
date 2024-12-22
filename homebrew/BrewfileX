@@ -1,9 +1,6 @@
 tap "elastic/tap"
-tap "homebrew-ffmpeg/ffmpeg"
-tap "mongodb/brew"
 
-# Libev port of shadowsocks
-brew "shadowsocks-libev"
+cask "onedrive"
 # Key value store for shared configuration and service discovery
 brew "etcd"
 # Open source programming language to build simple/reliable/efficient software
@@ -44,8 +41,12 @@ brew "telnet"
 brew "elastic/tap/elasticsearch-full"
 # Analytics and search dashboard for Elasticsearch
 brew "elastic/tap/kibana-full"
+
 # High-performance, schema-free, document-oriented database
+tap "mongodb/brew"
 brew "mongodb/brew/mongodb-community"
+
+tap "homebrew-ffmpeg/ffmpeg"
 # Play, record, convert, and stream audio and video
 brew "homebrew-ffmpeg/ffmpeg", args: ["with-fdk-aac"]
 
