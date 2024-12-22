@@ -76,7 +76,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions zsh-syntax-highlighting git z extract vi-mode ruby)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting git z extract vi-mode ruby kubectl)
 # pyenv
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -141,4 +141,8 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ynthm/Apps/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ynthm/Apps/google-cloud-sdk/path.zsh.inc'; fi
 
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ynthm/Apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ynthm/Apps/google-cloud-sdk/completion.zsh.inc'; fi

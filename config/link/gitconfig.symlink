@@ -18,7 +18,7 @@
    lgst = log --name-status
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [core]
-  excludesfile = /Users/ynthm/.gitignore_global
+	excludesfile = /Users/ynthm/.gitignore_global
   ; 中文文件路径
   quotepath = false
 [difftool "vscode"]
@@ -27,11 +27,11 @@
   cmd = /usr/local/bin/code --wait $MERGED
   trustExitCode = true
 [difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path = 
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [difftool "bc"]
   cmd = /usr/local/bin/bcomp $LOCAL $REMOTE
 [mergetool "bc"]
