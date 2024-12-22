@@ -1,4 +1,4 @@
-tap "elastic/tap"
+cask "obsidian"
 
 cask "onedrive"
 # Key value store for shared configuration and service discovery

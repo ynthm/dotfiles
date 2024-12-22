@@ -6,6 +6,15 @@
 
 文件夹可以通过 git 、 dropbox 进行备份。
 
+[Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.0.2)
+
+```sh
+export http_proxy="127.0.0.1:7897"
+export https_proxy="127.0.0.1:7897"
+
+ssh-keygen -t ed25519 -C "ynthm.w@gmail.com"
+```
+
 ## 初始化安装配置
 
 - 👉 macOS
@@ -24,7 +33,7 @@ sh bootstrap.sh
 `bootstrap.sh` 自动完成工作:
 
 1. 检查并安装 [Homebrew](http://brew.sh/)。
-2. 检查并安装 [Oh My Zsh](http://ohmyz.sh/)。
+2. 检查并安装 [Oh My Zsh](http://ohmyz.sh/)。  starship 替代
 3. 更新并安装 Homebrew packages (binaries, fonts, apps)。
 4. 检查并建立软连接 dotfiles (.zshrc, .vimrc, .gitconfig, .gitignore, ...)。
 

@@ -1,22 +1,15 @@
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
-tap "homebrew/core"
 
-# Shell extension to jump to frequently used directories
-brew "autojump"
-# Clone of cat(1) with syntax highlighting and Git integration
-brew "bat"
+# tap "homebrew/cask-fonts"
+
+
 # Mac App Store command-line interface
 brew "mas"
+brew "starship"
 
-cask "iterm2"
+cask "wezterm"
 cask "google-chrome"
 cask 'visual-studio-code'
-cask "sogouinput"
-# 屏保
-cask "aerial"
+
 cask "maczip"
 
 # Source Code Pro

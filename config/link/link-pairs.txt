@@ -1,4 +1,8 @@
-youtube-dl youtube-dl-config.sh /.config/youtube-dl/config
-zshrc zshrc.symlink /.zshrc
-gitconfig gitconfig.symlink /.gitconfig
-gitignore_global  gitignore_global.symlink /.gitignore_global
+
+~/.dotfiles/config/link/zshrc ~/.zshrc
+~/.dotfiles/config/link/.wezterm.lua ~/.wezterm.lua
+~/.dotfiles/config/link/.gitconfig ~/.gitconfig
+~/.dotfiles/config/link/.gitignore_global ~/.gitignore_global
+~/.dotfiles/config/link/starship.toml ~/.config/starship.toml
+
+~/.dotfiles/config/link/youtube-dl-config.sh /.config/youtube-dl/config

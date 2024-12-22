@@ -24,11 +24,11 @@ install_brew_apps() {
   bundle_check_install $DOTFILES_ROOT/homebrew/Brewfile
   user "More tools?\n\
         [y]Yes, [n]No?"
-  local more=true
+  local more=false
   read -n 1 action
   case "$action" in
-  n)
-    more=false
+  y)
+    more=true
     ;;
   esac
 

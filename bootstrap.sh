@@ -1,142 +1,69 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 # 这条命令写在脚本文件里才有作用 dirname $0 指当前脚本所在目录
 DOTFILES_ROOT=$(
   cd "$(dirname "$0")"
   pwd
 )
-# echo `pwd`
 
-function info {
-  printf "\r\033[32m🍀 $1\033[0m\n"
+info() {
+  printf "\r[\033[00;36mINFO\033[0m] $1\n"
 }
 # 用户选择
-function choose {
-  printf "\r\033[95m🌸 $1\033[0m\n"
+user() {
+  printf "\r[ \033[0;33m??\033[0m ] $1\n"
 }
 
-function ok {
-  echo -e "\033[94m🎽 $1\033[0m"
+ok() {
+  printf "\r\033[2K[ \033[00;32mOK\033[0m ] $1\n"
 }
 
-function fail {
-  echo -e "\033[90m✖️  $1\033[0m"
-  # exit
-}
-
-# In computing, a symbolic link (also symlink or soft link)
-# is a file whose purpose is to point to a file or directory (called the "target") by specifying a path thereto.
-function link_symbol_link() {
-  cat $1 | while read line; do
-    string=$line
-    array=(${string//,/ })
-
-    if [ -n "${array[2]}" ]; then
-      dst=$HOME${array[2]}
-    fi
-
-    if [ -L $dst ]; then
-      ok "existed symbolic link $dst"
-      continue
-    fi
-
-    if [ -n "${array[0]}" ]; then
-      name=${array[0]}
-    fi
-    if [ -n "${array[1]}" ]; then
-      src="$DOTFILES/config/link/${array[1]}"
-    fi
-
-    if [ "$name" = "youtube-dl" ]; then
-      if [ ! -d $HOME/.config/youtube-dl/config ]; then
-        mkdir -p ~/.config/youtube-dl
-      fi
-    fi
-
-    if [ -e $dst ]; then
-      echo "File already exists: $dst"
-      rm -rf "$dst"
-    fi
-
-    echo "create symbolic link $dst"
-    ln -s "$src" "$dst"
-  done
+fail() {
+  printf "\r\033[2K[\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  exit
 }
 
 install_homebrew() {
-  if test ! $(which brew); then
-    info "Installing Homebrew for you..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  if command -v brew >/dev/null 2>&1; then
+     echo '💋💋💋 Homebrew already installed.'
   else
-    info 'Homebrew already installed.'
+
+    info "Installing Homebrew for you..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo >> /Users/ynthm/.zprofile
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/ynthm/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
 }
 
-# https://github.com/ohmyzsh/ohmyzsh
-function install_ohmyzsh {
+install_starship(){
+  curl -sS https://starship.rs/install.sh | sh
+  # mkdir ~/.zsh
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+  git clone https://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions
+}
+
+install_ohmyzsh() {
   if [ ! -d ~/.oh-my-zsh ]; then
     info 'Installing oh-my-zsh'
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  else
-    info 'Oh My Zsh already installed.'
-  fi
-
-  link_symbol_link "$DOTFILES_ROOT/config/link/link-pairs.txt"
-
-  install_powerlevel10k
-  install_zsh_autosuggestions
-  install_zsh_syntax_highlighting
-  intall_zsh_completions
-
-  choose "please exec: source ~/.zshrc"
-  # source_zshrc
-}
-
-function source_zshrc {
-  source ~/.zshrc
-}
-
-# Fish-like fast/unobtrusive autosuggestions for zsh
-function install_zsh_autosuggestions {
-  if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ]; then
-    info 'Installing zsh-autosuggestions'
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-  else
-    info 'zsh-autosuggestions already installed.'
-  fi
-}
-
-# Fish shell like syntax highlighting for zsh
-function install_zsh_syntax_highlighting {
-  if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; then
-    info 'Installing zsh-syntax-highlighting'
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-  else
-    info 'zsh-syntax-highlighting already installed.'
-  fi
-}
-
-function intall_zsh_completions {
-  if [ ! -d ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions ]; then
-    info 'Installing zsh-completions'
     git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
   else
-    info 'zsh-completions already installed.'
+    echo '👏🏻👏🏻👏🏻 Oh My Zsh already installed.'
   fi
 }
 
-function install_powerlevel10k {
-  if [ ! -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
-    info 'Installing Zsh theme powerlevel10k'
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-  else
-    info 'powerlevel10k already installed.'
-  fi
-}
+if [ "$SHELL" != "/bin/zsh" ]; then
+  chsh -s $(which zsh)
+fi
 
 install_brew_apps() {
   # If we're on a Mac, let's install and setup homebrew.
-  if [ "$(uname -s)" == "Darwin" ]; then
+  if [ "$(uname -s)" = "Darwin" ]; then
     info "Installing dependencies"
     # 执行其他脚本
     cd $DOTFILES_ROOT
@@ -149,44 +76,7 @@ install_brew_apps() {
   fi
 }
 
-PS3='Please enter your choice: '
-options=("Install all" "Install homebrew" "Install ohmyzsh" "Install brew apps" "Create symbolic link" "Quit")
-select opt in "${options[@]}"; do
-  case $opt in
-  "Install all")
-    install_homebrew
-    install_ohmyzsh
-    install_brew_apps
-    ;;
-  "Install homebrew")
-    install_homebrew
-    ;;
-  "Install ohmyzsh")
-    install_ohmyzsh
-    ;;
-  "Install brew apps")
-    install_brew_apps
-    ;;
-  "Create symbolic link")
-    link_symbol_link "$DOTFILES_ROOT/config/link/link-pairs.txt"
-    ;;
-  "Quit")
-    break
-    ;;
-  *) echo invalid option ;;
-  esac
-done
 
-# Disable the “Last login” Message on new Terminal Session
-touch ~/.hushlogin
-
-# macOS Catalina 使用 zsh 作为默认 Shell
-function change_shell() {
-  if [ "$SHELL" != "/bin/zsh" ]; then
-    echo "changing to zsh."
-    chsh -s $(which zsh)
-  fi
-}
 
 link_file() {
   local src=$1 dst=$2
@@ -206,7 +96,7 @@ link_file() {
 
       else
 
-        choose "File already exists: $dst ($(basename "$src")), what do you want to do?\n\
+        user "File already exists: $dst ($(basename "$src")), what do you want to do?\n\
         [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
         read -n 1 action
 
@@ -262,8 +152,18 @@ link_file() {
   fi
 }
 
+link() {
+  if [ ! -d $HOME/.config/youtube-dl/config ]; then
+    info "config youtube-dl"
+    mkdir ~/.config/youtube-dl
+    ln -s "$DOTFILES_ROOT/config/youtube-dl/config" "$HOME/.config/youtube-dl/config"
+  fi
+}
+
 install_dotfiles() {
   info 'Installing dotfiles'
+  link
+
   local overwrite_all=false backup_all=false skip_all=false
 
   for src in $(find "$DOTFILES_ROOT/config" -maxdepth 2 -name '*.symlink' -not -path '*.git*'); do
@@ -271,6 +171,11 @@ install_dotfiles() {
     link_file "$src" "$dst"
   done
 }
+
+install_homebrew
+# install_ohmyzsh
+install_brew_apps
+install_dotfiles
 
 install_spacevim() {
   if [ ! -d ~/.SpaceVim.d ]; then
@@ -280,3 +185,8 @@ install_spacevim() {
     echo '💋💋💋 SpaceVim already installed.'
   fi
 }
+
+# install_spacevim
+
+# Disable the “Last login” Message on new Terminal Session
+# touch ~/.hushlogin
