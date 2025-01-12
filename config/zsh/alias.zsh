@@ -1,12 +1,13 @@
-alias brew='/opt/homebrew/bin/brew' # ARM Homebrew
-alias ibrew='arch -x86_64 /usr/local/bin/brew' # X86 Homebrew
 alias md="mkdir -p"
 
 alias bs='brew search'
-alias bi='brew install -s'
+alias bi='brew install'
 alias bif='brew info'
+alias bcin='brew install --cask'
 alias br='brew uninstall'
-alias bcr='brew cask zap'
+alias bl='brew list'
+alias blf='brew list --formula --versions'
+alias blc='brew list --cask --versions'
 
 pcp='rsync -r --progress'
 
@@ -20,4 +21,6 @@ alias yfb="$YDL -f 'bestvideo+bestaudio' --no-check-certificate"
 
 alias ysub="$YDL --all-subs --skip-download"
 
-alias port-listen="lsof -i -P | grep -i "listen""
+alias port-listen="lsof -i -P | grep -i "LISTEN""
+
+alias ll='eza -l --icons'

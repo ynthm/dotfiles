@@ -1,24 +1,25 @@
-
-# tap "homebrew/cask-fonts"
-
-
+tap "homebrew/bundle"
+# Modern, maintained replacement for ls
+brew "eza"
 # Mac App Store command-line interface
 brew "mas"
+# Cross-shell prompt for astronauts
 brew "starship"
-
-cask "wezterm"
-cask "google-chrome"
-cask 'visual-studio-code'
-
-cask "maczip"
-
-# Source Code Pro
-# cask "font-sourcecodepro-nerd-font-mono"
-# 微软 Cascadia Code
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 cask "font-caskaydia-cove-nerd-font"
-# 播放器
+# Web browser
+cask "google-chrome"
+# Free and open-source media player
 cask "iina"
-# 鼠标增强
+# Utility to open, create and modify archive files
+cask "maczip"
+# Smooths scrolling and set mouse scroll directions independently
 cask "mos"
-
-mas "WeChat", id: 836500024
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# Open-source code editor
+cask "visual-studio-code"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
+mas "微信", id: 836500024
